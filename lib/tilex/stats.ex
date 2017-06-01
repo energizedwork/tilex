@@ -34,7 +34,7 @@ defmodule Tilex.Stats do
       order by dates_table.date;
     """
 
-    result = Ecto.Adapters.SQL.query!(Tilex.Repo, posts_for_days_sql, [])
+    result = Ecto.Adapters.SQL.query!(Repo, posts_for_days_sql, [])
     posts_for_days = result.rows
 
     posts_and_channels = from(p in "posts",
@@ -54,8 +54,8 @@ defmodule Tilex.Stats do
 
     hottest_posts = hot_posts()
 
-    posts_count = Tilex.Repo.one(from p in "posts", select: fragment("count(*)"))
-    channels_count = Tilex.Repo.one(from c in "channels", select: fragment("count(*)"))
+    posts_count = Repo.one(from p in "posts", select: fragment("count(*)"))
+    channels_count = Repo.one(from c in "channels", select: fragment("count(*)"))
 
     data = [
       channels: Repo.all(posts_by_channels_count),

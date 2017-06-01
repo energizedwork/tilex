@@ -37,15 +37,41 @@ defmodule Tilex.Posts do
   end
 
   def by_search(search_query, page) do
-    query = posts(page)
-            |> where([p], ilike(p.title, ^"%#{search_query}%"))
+
+    query = """
+    select * from posts limit 1
+    """
+
+    """
+    select count(distinct count_column)
+    from (select distinct posts.id
+    as count_column from posts
+    inner join developers
+    on developers.id = posts.developer_id
+    inner join channels
+    on channels.id = posts.channel_id
+    join lateral (
+      select
+        ts_rank_cd(setweight(to_tsvector('english', posts.title), 'A') ||
+        setweight(to_tsvector('english', developers.username), 'B') ||
+        setweight(to_tsvector('english', channels.name), 'B') ||
+        setweight(to_tsvector('english', posts.body), 'C'),
+      plainto_tsquery('english', 'bar')) as rank
+      ) ranks on true where (ranks.rank > 0)
+      order by posts.published_at desc,
+      ranks.rank desc,
+      posts.inserted_at
+      desc limit 50 offset 0
+    """
+
+    posts = Ecto.Adapters.SQL.query!(Repo, query)
 
     posts_count = Repo.one(from p in "posts",
       where: ilike(p.title, ^"%#{search_query}%"),
       select: fragment("count(*)")
     )
 
-    {Repo.all(query), posts_count}
+    {Repo.one(posts.rows), posts_count}
   end
 
   defp posts(page) do
