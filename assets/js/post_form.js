@@ -21,11 +21,41 @@ export default class PostForm {
     if (!this.$postBodyInput.length) {
       return;
     }
+
     this.textConversion.init();
     this.setInitialPreview();
     this.observePostBodyInputChange();
     this.observeTitleInputChange();
     autosize(this.$postBodyInput);
+
+    var that = this;
+    this.$ace_editor = $('#editor');
+
+    if (this.$ace_editor.length > 0 && !!TIL.editor.match(/Ace/)) {
+      var editor = ace.edit('editor');
+      var session = editor.getSession();
+      ace.config.set('workerPath', '/assets/javascripts/ace');
+      editor.setTheme('ace/theme/kuroir');
+      editor.setFontSize(16);
+
+      session.setMode('ace/mode/markdown');
+      session.setUseWrapMode(true);
+      session.setUseSoftTabs(true);
+      session.setTabSize(2);
+      session.on('change', function() {
+        var value = editor.session.getValue();
+        that.$postBodyInput.val(value).trigger('change');
+      });
+
+      editor.setValue(this.$postBodyInput.val());
+
+      if (TIL.editor === 'Ace (w/ Vim)') {
+        editor.setKeyboardHandler('ace/keyboard/vim');
+      }
+
+      this.$ace_editor.show();
+      this.$postBodyInput.hide();
+    }
   }
 
   setInitialPreview() {
@@ -79,7 +109,13 @@ export default class PostForm {
   }
 
   observePostBodyInputChange() {
-    this.$postBodyInput.on('input', e => {
+    this.$postBodyInput.on('keyup', e => {
+      this.updateWordCount();
+      this.updateWordLimit();
+      this.textConversion.convert(e.target.value, 'markdown');
+    });
+
+    this.$postBodyInput.on('change', e => {
       this.updateWordCount();
       this.updateWordLimit();
       this.textConversion.convert(e.target.value, 'markdown');

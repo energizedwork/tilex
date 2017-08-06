@@ -16,6 +16,7 @@
       <small class="word_limit" data-limit="<%= Tilex.Post.body_max_words %>"></small>
     </dt>
     <dd>
+      <div id="editor"></div>
       <%= textarea f, :body,
         placeholder: "Enter body...",
         class: "autosize",

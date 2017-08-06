@@ -120,6 +120,14 @@
       </ul>
     </nav>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <%= if assigns[:view_module] == TilexWeb.PostView && assigns[:view_template] =~ ~r/new|edit/ do %>
+      <script src="/assets/javascripts/ace-builds/ace.js"></script>
+      <script type="text/javascript">
+        var TIL = TIL || {};
+        TIL.editor = "<%= @current_user.editor %>";
+      </script>
+    <% end %>
+
 
     <!-- syntax highlighting -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
