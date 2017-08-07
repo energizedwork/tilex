@@ -7,7 +7,9 @@ use Mix.Config
 
 # General application configuration
 config :tilex,
-  ecto_repos: [Tilex.Repo]
+  ecto_repos: [Tilex.Repo],
+  company_domain: "energizedwork.com"
+
 
 # Configures the endpoint
 config :tilex, TilexWeb.Endpoint,
@@ -28,7 +30,7 @@ config :ueberauth, Ueberauth,
         approval_prompt: "force",
         access_type: "offline",
         default_scope: "email profile",
-        hd: "hashrocket.com"
+        hd: Application.get_env(:tilex, :company_domain)
       ]}
   ]
 
