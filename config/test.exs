@@ -12,11 +12,18 @@ config :tilex, :sql_sandbox, true
 config :logger, level: :warn
 
 # Configure your database
-config :tilex, Tilex.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "tilex_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+if System.get_env("DATABASE_URL") do
+  config :tilex, Tilex.Repo,
+    adapter: Ecto.Adapters.Postgres,
+    url: System.get_env("DATABASE_URL"),
+    pool: Ecto.Adapters.SQL.Sandbox
+else
+  config :tilex, Tilex.Repo,
+    adapter: Ecto.Adapters.Postgres,
+    database: "tilex_test",
+    hostname: "localhost",
+    pool: Ecto.Adapters.SQL.Sandbox
+end
 
 config :wallaby, screenshot_on_failure: true
 
