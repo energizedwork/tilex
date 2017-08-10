@@ -39,10 +39,10 @@ defmodule Features.VisitorViewsChannelTest do
     |> assert_has(Query.css("article.post", count: 5))
     |> assert_has(Query.css("nav.pagination", visible: true))
     |> click(Query.link("older TILs"))
-    |> assert_has(Query.css("h1", text: "Title1", visible: true))
+    |> assert_has(Query.css("h1", text: String.upcase("Title1"), visible: true))
     |> assert_has(Query.css("article.post", count: 1))
     |> click(Query.link("newer TILs"))
-    |> assert_has(Query.css("h1", text: "Title5", visible: true))
+    |> assert_has(Query.css("h1", text: String.upcase("Title5"), visible: true))
     |> assert_has(Query.css("article.post", count: 5))
   end
 end
