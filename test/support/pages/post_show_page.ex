@@ -6,7 +6,7 @@ defmodule Tilex.Integration.Pages.PostShowPage do
     |> Browser.find(Query.css("article.post"))
 
     session
-    |> Browser.find(Query.css("h1", text: post.title))
+    |> Browser.find(Query.css("h1", text: String.upcase(post.title)))
 
     session
   end
@@ -25,7 +25,7 @@ defmodule Tilex.Integration.Pages.PostShowPage do
     expected_likes_count = Map.fetch!(attrs, :likes_count) |> to_string()
 
     session
-    |> Browser.find(Query.css(".post h1", text: expected_title))
+    |> Browser.find(Query.css(".post h1", text: String.upcase(expected_title)))
 
     session
     |> Browser.find(Query.css(".post .copy", text: expected_body))

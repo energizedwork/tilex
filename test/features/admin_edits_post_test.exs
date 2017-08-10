@@ -41,6 +41,6 @@ defmodule AdminEditsPostTest do
 
     post_title = element_text.(session, ".post h1")
 
-    assert post_title       =~ ~r/Even Awesomer Post!/
+    assert post_title       =~ ~r/Even Awesomer Post!/i
   end
 end

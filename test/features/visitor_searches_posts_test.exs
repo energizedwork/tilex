@@ -32,8 +32,8 @@ defmodule VisiorSearchesPosts do
 
     assert search_result_header == "2 posts about rules"
     assert find(session, Query.css("article.post", [count: 2]))
-    assert body =~ ~r/Elixir Rules/
-    assert body =~ ~r/Hashrocket Rules/
+    assert body =~ ~r/Elixir Rules/i
+    assert body =~ ~r/Hashrocket Rules/i
     refute body =~ ~r/Because JavaScript/
   end
 

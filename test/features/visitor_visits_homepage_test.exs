@@ -35,7 +35,7 @@ defmodule VisitorVisitsHomepageTest do
     post_body   = element_text.(session, "article")
     post_footer = element_text.(session, ".post aside")
 
-    assert post_header == "A post about porting Rails applications to Phoenix"
+    assert post_header =~ ~r/A post about porting Rails applications to Phoenix/i
     assert post_body   =~ ~r/It starts with Rails and ends with Elixir/
     assert post_footer =~ ~r/#smalltalk/i
   end
