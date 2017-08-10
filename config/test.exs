@@ -38,9 +38,9 @@ config :tilex, :async_feature_test, (System.get_env("ASYNC_FEATURE_TEST") == "ye
 config :httpoison, timeout: 6000
 
 config :wallaby,
-  driver: Wallaby.Experimental.Chrome,
+  # driver: Wallaby.Experimental.Chrome,
   hackney_options: [timeout: :infinity, recv_timeout: :infinity],
-  chrome: [
-    headless: true
-  ],
+  # chrome: [
+  #   headless: true
+  # ],
   screenshot_on_failure: true
