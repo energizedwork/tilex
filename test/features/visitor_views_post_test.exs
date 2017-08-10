@@ -12,7 +12,7 @@ defmodule VisitorViewsPostTest do
       |> find(Query.css("body"))
       |> Element.text
 
-    assert body =~ ~r/A special post/
+    assert body =~ ~r/A special post/i
     assert body =~ ~r/makinpancakes/
     assert page_title(session) == "A special post - Today I Learned"
   end

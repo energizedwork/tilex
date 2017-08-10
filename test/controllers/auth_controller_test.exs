@@ -3,9 +3,9 @@ defmodule Tilex.AuthControllerTest do
 
   alias Tilex.Factory
 
-  test "GET /auth/google/callback with hashrocket email", %{conn: conn} do
+  test "GET /auth/google/callback with energizedwork email", %{conn: conn} do
     ueberauth_auth =
-      ueberauth_struct("developer@hashrocket.com",
+      ueberauth_struct("developer@energizedwork.com",
                        "Ricky Rocketeer",
                        "186823978541230597895")
 
@@ -14,25 +14,25 @@ defmodule Tilex.AuthControllerTest do
     conn = get conn, auth_path(conn, :callback, "google")
 
     assert redirected_to(conn) == "/"
-    assert get_flash(conn, :info) == "Signed in with developer@hashrocket.com"
+    assert get_flash(conn, :info) == "Signed in with developer@energizedwork.com"
 
     new_developer =
       Tilex.Repo.get_by!(Tilex.Developer, google_id: "186823978541230597895")
-    assert new_developer.email == "developer@hashrocket.com"
+    assert new_developer.email == "developer@energizedwork.com"
   end
 
-  test "GET /auth/google/callback with existing hashrocket email", %{conn: conn} do
+  test "GET /auth/google/callback with existing energizedwork email", %{conn: conn} do
     Factory.insert!(:developer,
-                    email: "rebecca@hashrocket.com",
+                    email: "rebecca@energizedwork.com",
                     name: "Rebecca Rocketeer",
                     google_id: "126456978541230597123"
                   )
     existing_developer =
       Tilex.Repo.get_by!(Tilex.Developer, google_id: "126456978541230597123")
-    assert existing_developer.email == "rebecca@hashrocket.com"
+    assert existing_developer.email == "rebecca@energizedwork.com"
 
     ueberauth_auth =
-      ueberauth_struct("rebecca@hashrocket.com",
+      ueberauth_struct("rebecca@energizedwork.com",
                        "Rebecca Rocketeer",
                        "126456978541230597123")
 
@@ -41,7 +41,7 @@ defmodule Tilex.AuthControllerTest do
     conn = get conn, auth_path(conn, :callback, "google")
 
     assert redirected_to(conn) == "/"
-    assert get_flash(conn, :info) == "Signed in with rebecca@hashrocket.com"
+    assert get_flash(conn, :info) == "Signed in with rebecca@energizedwork.com"
   end
 
   test "GET /auth/google/callback with other email domain", %{conn: conn} do

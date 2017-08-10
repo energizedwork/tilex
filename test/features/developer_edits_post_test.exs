@@ -55,7 +55,7 @@ defmodule DeveloperEditsPostTest do
     likes_count      = element_text.(session, ".js-like-action")
 
     assert info_flash       == "Post Updated"
-    assert post_title       =~ ~r/Even Awesomer Post!/
+    assert post_title       =~ ~r/Even Awesomer Post!/i
     assert post_body        =~ ~r/This is how to be super awesome!/
     assert post_footer      =~ ~r/#phoenix/i
     assert likes_count      =~ ~r/1/
