@@ -2,6 +2,7 @@
 
 <%= if TilexWeb.PostView.more_info?(@post.channel) do %>
   <div class="more-info">
-    <%= render TilexWeb.SharedView, "_#{@post.channel.name}.html" %>
+    <%# TODO<%= render TilexWeb.SharedView, "_#{@post.channel.name}.html" %>
+    <%= render TilexWeb.SharedView, "_marketing.html" %>
   </div>
 <% end %>

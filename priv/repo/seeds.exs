@@ -20,7 +20,7 @@ phoenix_channel = Repo.insert!(%Channel{name: "phoenix", twitter_hashtag: "phoen
 elixir_channel = Repo.insert!(%Channel{name: "elixir", twitter_hashtag: "myelixirstatus"})
 erlang_channel = Repo.insert!(%Channel{name: "erlang", twitter_hashtag: "erlang"})
 
-developer= Repo.insert!(%Developer{email: "developer@hashrocket.com",
+developer= Repo.insert!(%Developer{email: "developer@energizedwork.com",
   username: "rickyrocketeer",
   google_id: "186823978541230597895"
 })

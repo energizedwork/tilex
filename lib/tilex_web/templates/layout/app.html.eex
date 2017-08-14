@@ -8,19 +8,19 @@
     <meta name="csrf" content="<%= Plug.CSRFProtection.get_csrf_token() %>">
 
     <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="TIL is an open-source project by Hashrocket that exists to catalogue the sharing & accumulation of knowledge as it happens day-to-day.">
+    <meta name="description" content="TIL is an open-source project by Energized Work that exists to catalogue the sharing & accumulation of knowledge as it happens day-to-day.">
 
     <meta itemprop="name" content="Today I Learned">
     <meta itemprop="brand" content="Today I Learned">
-    <meta itemprop="description" content="TIL is an open-source project by Hashrocket that exists to catalogue the sharing & accumulation of knowledge as it happens day-to-day.">
+    <meta itemprop="description" content="TIL is an open-source project by Energized Work that exists to catalogue the sharing & accumulation of knowledge as it happens day-to-day.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@energizedwork">
     <meta name="twitter:creator" content="@energizedwork">
-    <meta name="twitter:title" content="Today I Learned: a Hashrocket Project">
-    <meta name="twitter:description" content="TIL is an open-source project by Hashrocket that exists to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit, and posting is open to any Rocketeer as well as select friends of the team. We hope you enjoy learning along with us.">
+    <meta name="twitter:title" content="Today I Learned: a Energized Work Project">
+    <meta name="twitter:description" content="TIL is an open-source project by Energized Work that exists to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit, and posting is open to any Rocketeer as well as select friends of the team. We hope you enjoy learning along with us.">
     <meta name="twitter:image" content=<%= TilexWeb.Endpoint.static_url() <> "/assets/til_twittercard.png" %>>
 
     <link href="//fonts.googleapis.com/css?family=Lato|Oswald" rel="stylesheet">

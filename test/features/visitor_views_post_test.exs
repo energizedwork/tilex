@@ -26,7 +26,8 @@ defmodule VisitorViewsPostTest do
            |> find(Query.css(".more-info"))
            |> Element.text
 
-    {:ok, marketing_content} = File.read("lib/tilex_web/templates/shared/_elixir.html.eex")
+    # TODO{:ok, marketing_content} = File.read("lib/tilex_web/templates/shared/_elixir.html.eex")
+    {:ok, marketing_content} = File.read("lib/tilex_web/templates/shared/_marketing.html.eex")
     assert copy =~ String.slice(marketing_content, 0, 10)
   end
 
