@@ -19,16 +19,22 @@ body
   display: flex
   width: 100%
   z-index: 1000
-  font-size: 14px
-  line-height: 1em
   height: 38px
   overflow: hidden
   background: #000
-  line-height: 18px
+  line-height: 1.2
   font-size: 18px
   text-transform: uppercase
   font-weight: 900
   color: #fff
+
+  +tablet
+    font-size: 2.4vw
+    line-height: 1
+
+  +mobile
+    font-size: 3.6vw
+    line-height: 1.4
 
   .text
     margin: -1px auto auto 5px
@@ -54,6 +60,7 @@ body
       svg
         height: 18px
         display: block
+        margin-top: 1px
 
 
   .social
@@ -106,7 +113,7 @@ header.site_head
     text-align: justify
     color: #fff
     font-weight: 100
-    padding: 0vw 25vw
+    padding: 0vw 23vw
     a
       text-align: right
       font-size: 1.4rem
@@ -121,11 +128,11 @@ header.site_head
         color: $red
         background: left 55% no-repeat url("/images/ew-logo.svg")
         background-size: 1.8rem auto
+    +tablet
+      padding: 0vw 25vw
+      font-size: 2.0vw
   +mobile
-    z-index: 100
-    background: #fff
     text-align: right
-    +box_outline
     padding-right: 1rem
     padding-bottom: 0
     margin-top: 36px
