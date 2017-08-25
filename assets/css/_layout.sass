@@ -4,7 +4,7 @@ html
 body
   -webkit-text-size-adjust: none
   -webkit-font-smoothing: antialiased
-  background: url(/images/ew-wave-bubble.svg) bottom right no-repeat fixed $light
+  background: url(/images/TIL-graphic.svg) bottom right no-repeat fixed $light
   color: $dark
   font-family: $primary-typeface
   font-size: 1.6em
@@ -19,7 +19,7 @@ body
   display: flex
   width: 100%
   z-index: 1000
-  height: 38px
+  height: $header-height
   overflow: hidden
   background: #000
   line-height: 1.2
@@ -79,21 +79,33 @@ header.site_head
   z-index: 1
   padding: 0vw 6vw
   text-align: center
-  margin-top: 60px
+  margin-top: $header-height
+  padding-top: 20px
+  border: 0px solid purple
+
+  +mobile
+    text-align: right
+    padding-right: 1rem
+    padding-bottom: 0
+    margin-top: $header-height -2
+    padding-top: 0px
+    h1
+      margin-top: 40px
+      margin-bottom: 40px
+    h2
+      display: none
+
 
   .logo-container
     position: absolute
-    width: 720px
-    height: 650px
-    top: -450px
-    left: -400px
-    background-color: #fff
-    border-radius: 50%
+    top: 0px
+    left: 0px
+    border: 0px solid red
 
-    .logo
-      width: 16%
-      margin-top: 447px
-      margin-left: 280px
+    min-width: 616px
+    min-height: 130px
+
+
     +mobile
       display: none
   div
@@ -131,16 +143,6 @@ header.site_head
     +tablet
       padding: 0vw 25vw
       font-size: 2.0vw
-  +mobile
-    text-align: right
-    padding-right: 1rem
-    padding-bottom: 0
-    margin-top: 36px
-    h1
-      margin-top: 40px
-      margin-bottom: 40px
-    h2
-      display: none
 
   .admin_panel
     font-family: $secondary-typeface
