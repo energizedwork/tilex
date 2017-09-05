@@ -22,26 +22,26 @@ body
   height: $header-height
   overflow: hidden
   background: #000
-  line-height: 1.2
+  line-height: 1
   font-size: 18px
   text-transform: uppercase
   font-weight: 900
   color: #fff
 
-  +tablet
-    font-size: 2.4vw
-    line-height: 1
-
   +mobile
-    font-size: 3.6vw
-    line-height: 1.4
+    font-size: 17px
+    line-height: 1
+    border: 0px solid red
 
   .text
-    margin: -1px auto auto 5px
+    margin: 0px auto auto 5px
     width: auto
     height: auto
     position: static
     color: #fff
+
+    +mobile
+      margin: 0px auto auto 3px
 
   div
     flex: none
@@ -59,16 +59,19 @@ body
     .home
       svg
         height: 18px
-        display: block
         margin-top: 1px
+        padding: 0px
 
+
+        +mobile
+          height: 17px
 
   .social
     margin-left: auto
     .twitter
       color: $twitter-color
       background: svg-url(twitter, $twitter-color) center left no-repeat
-      background-size: 1.7rem auto
+      background-size: 1.9rem auto
       margin: 0 0 0 1rem
 
 header.site_head
@@ -88,7 +91,7 @@ header.site_head
     padding-right: 1rem
     padding-bottom: 0
     margin-top: $header-height -2
-    padding-top: 0px
+    padding-top: 6px
     h1
       margin-top: 40px
       margin-bottom: 40px
