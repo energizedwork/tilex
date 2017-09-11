@@ -125,12 +125,11 @@
                 Hashrocket
               </a>
               that exists to catalogue the sharing & accumulation of knowledge
-              as it happens day-to-day. Posts have a 200-word limit, and
-              posting is open to any Rocketeer as well as selected friends of
-              Hashrocket. We hope you enjoy learning along with us.
+              as it happens day-to-day. <a href="https://energizedwork.com/">Energized Work</a> liked the idea so much they deployed a fork.
+              Posts have a 200-word limit, and posting is open to any EW crew member. We hope you enjoy learning along with us.
               <ul class="social">
                 <li>
-                  <%= link("/hashrockettil", to: "https://twitter.com/hashrockettil", class: "social_twitter") %>
+                  <%= link("@energizedwork", to: "https://twitter.com/energizedwork", class: "social_twitter") %>
                 </li>
                 <li>
                   <%= link("/hashrocket/tilex", to: "https://github.com/hashrocket/tilex", class: "social_github") %>
