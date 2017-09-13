@@ -35,6 +35,9 @@
     <%= if assigns[:canonical_url] do %>
       <link rel="canonical" href="<%= @canonical_url %>">
     <% end %>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
