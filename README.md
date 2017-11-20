@@ -26,6 +26,7 @@ $ cd tilex
 $ mix deps.get
 $ mix ecto.setup
 $ cd assets && npm install
+$ cd ..
 $ mix phoenix.server
 ```
 
